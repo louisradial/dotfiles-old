@@ -1,0 +1,6 @@
+require 'mini.comment'.setup()
+require 'mini.pairs'.setup()
+require 'mini.starter'.setup()
+require 'mini.surround'.setup()
+require 'mini.tabline'.setup()
+-- require 'mini.statusline'.setup()
