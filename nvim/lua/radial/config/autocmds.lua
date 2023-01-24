@@ -1,10 +1,3 @@
-require('radial.plugins')
-require('radial.set')
-require('radial.remap')
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -26,14 +19,3 @@ autocmd({'BufWritePre'}, {
     pattern = '*',
     command = [[%s/\s\+$//e]]
 })
-
--- colorscheme
-local colorscheme =
-'tokyonight-night'
--- 'tokyonight-storm'
--- 'gruvbox'
--- 'catppuccin'
--- 'duskfox'
-vim.o.background = 'dark'
-vim.o.termguicolors = true
-vim.cmd.colorscheme(colorscheme)
