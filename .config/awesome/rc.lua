@@ -718,17 +718,20 @@ globalkeys = gears.table.join(
         function()
             awful.util.spawn("amixer -M set Master 1dB+", false)
             volume_signal:emit_signal('timeout')
-        end),
+        end,
+        { description = "Audio up", group = "system" }),
     awful.key({}, "XF86AudioLowerVolume",
         function()
             awful.util.spawn("amixer -M set Master 2%-", false)
             volume_signal:emit_signal('timeout')
-        end),
+        end,
+        { description = "Audio down", group = "system" }),
     awful.key({}, "XF86AudioMute",
         function()
             awful.util.spawn("amixer set Master toggle", false)
             volume_signal:emit_signal('timeout')
-        end),
+        end,
+        { description = "Toggle Mute", group = "system" }),
     awful.key({}, "XF86MonBrightnessDown",
         function()
             awful.util.spawn("light -U 20", false)
@@ -981,7 +984,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- autorun
 local autorun = true
 local autorun_apps = {
-    "picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0",
+    -- "picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0",
     -- "nitrogen --restore",
 }
 if autorun then
